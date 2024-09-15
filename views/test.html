@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYS Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <h1>GYS PORTAL</h1>
+    </header>
+                <section class="entries">
+                    <article>
+                        <span id="name"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </article>
+                    <article>
+                        <button class="resize margin-b"><i class="fa-solid fa-phone"></i></button>
+                        <button id="" class="resize"><i class="fa-solid fa-eye"></i></button>
+                    </article>
+                </section>
+    <section class="popup window">
+        <form action="/upload" method="post">
+            <label for="fname">Full Name</label>
+            <input type="text" placeholder="Suraj Mohanty" name="fname">
+            <label for="mobile">Mobile</label>
+            <input type="number" placeholder="9876543210" name="mobile">
+            <label for="requirments">Requirments</label>
+            <input type="text" placeholder="Ex. 2bhk" name="requirments">
+            <label for="type">Type of Party</label>
+            <select name="type" id="type">
+                <option value="rent">Rent</option>
+                <option value="buy">Buy</option>
+            </select><br>
+            <label for="budget">Budget</label>
+            <input type="text" placeholder="Ex. 10k" name="budget">
+            <label for="location">Location</label>
+            <input type="text" placeholder="Ex. Baguiati" name="location">
+            <label for="date">Visit Date</label>
+            <input type="date" id="date" name="date">
+            <label for="time">Visit Time</label>
+            <input type="time" placeholder="Ex. Baguiati" name="time">
+            <label for="status">Client Status</label>
+            <select name="status" id="status">
+                <option value="select">Select</option>
+                <option value="contacted">Contacted</option>
+                <option value="visited">Visited</option>
+                <option value="not_visited">Not_visited</option>
+                <option value="no_communication">No_communication</option>
+                <option value="follow_up_needed">Follow_up_needed</option>
+                <option value="out_of_town">Out_of_town</option>
+                <option value="rejected">Rejected</option>
+                <option value="unfit">Unfit</option>
+            </select><br>
+            <label for="remarks">Remarks</label>
+            <textarea minlength="1" name="remarks" id="remarks" placeholder="Ex. will let us know"></textarea>
+            <button type="submit" class="darkStyle">Submit</button>
+            <button type="button" id="close" class="darkStyle">Close</button>
+        </form>
+    </section>
+    <footer>
+        <button id="create" class="resize"><i class="fa-solid fa-plus"></i></button>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>

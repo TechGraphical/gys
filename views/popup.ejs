@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Details</title>
+    <style>
+        body {
+            background-color: #281d0c;
+        }
+
+        .show {
+            color: #ffe06f;
+            border-radius: 20px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        label {
+            padding: 5px;
+            display: inline-block;
+        }
+
+        input {
+            display: block;
+            padding: 5px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 1px 1px;
+            background-color: #ffe06f;
+            width: 100%;
+            height: 20px;
+        }
+
+        .darkStyle {
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            margin-top: 15px;
+            background-color: #ffe06f;
+            color: rgb(0, 0, 0);
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        #remarks {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="show">
+        <form action="/update" method="post">
+            <input type="hidden" value="<%= person.id%>" name="id" id="id">
+            <label for="fname">Name</label>
+            <input type="text" value="<%= person.fname %>" placeholder="Ex. Suraj Mohanty" name="fname">
+            <label for="mobile">Mobile</label>
+            <input type="number" value="<%= person.mobile %>" placeholder="Ex. 9876543210" name="mobile">
+            <label for="requirments">Requirments</label>
+            <input type="text" value="<%= person.requirments %>" placeholder="Ex. 2bhk" name="requirments">
+            <label for="type">Type of Party</label>
+            <select name="type" id="type">
+                <% if(person.type=="rent" ) {%>
+                    <option value="rent" selected>Rent</option>
+                    <option value="buy">Buy</option>
+                    <% } else if(person.type=="buy" ){ %>
+                        <option value="rent">Rent</option>
+                        <option value="buy" selected>Buy</option>
+                        <% } %>
+            </select><br>
+            <label for="budget">Budget</label>
+            <input type="text" value="<%= person.budget %>" placeholder="Ex. 10k" name="budget">
+            <label for="location">Location</label>
+            <input type="text" value="<%= person.location %>" placeholder="Ex. Baguiati" name="location">
+            <label for="date">Visit Date</label>
+            <input type="date" value="<%= person.date %>" id="date" name="date">
+            <label for="time">Visit Time</label>
+            <input type="time" value="<%= person.time %>" placeholder="Ex. Baguiati" name="time">
+            <label for="status">Client Status</label>
+            <select name="status" id="status">
+                <option value="select">Select</option>
+                <option value="contacted">Contacted</option>
+                <option value="visited">Visited</option>
+                <option value="not_visited">Not_visited</option>
+                <option value="no_communication">No_communication</option>
+                <option value="follow_up_needed">Follow_up_needed</option>
+                <option value="out_of_town">Out_of_town</option>
+                <option value="rejected">Rejected</option>
+                <option value="unfit">Unfit</option>
+            </select><br>
+            <label for="remarks">Remarks</label>
+            <textarea rows="4" cols="40" name="remarks" id="remarks" placeholder="Ex. will let us know"><%= person.remarks %></textarea>
+            <button type="submit" class="darkStyle">Submit</button>
+            <button type="button" id="back" class="darkStyle">Back</button>
+        </form>
+    </section>
+    <script>
+        let myStatus = '<%= person.status %>';
+        const selectElement = document.getElementById("status");
+
+        for (let i = 0; i < selectElement.options.length; i++) {
+            const option = selectElement.options[i];
+
+            if (option.value === myStatus) {
+                option.selected = true;
+                break; // Exit the loop once the option is found
+            }
+        }
+        let btn = document.querySelector('#back');
+        btn.addEventListener('click', ()=> {
+            window.location.href = 'http://localhost:3000';
+        })
+    </script>
+</body>
+
+</html>
